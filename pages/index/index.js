@@ -40,7 +40,6 @@ Page({
   onLoad: function () {
     initalFetch();
 
-    console.log("initalFetch",initalFetch)
     this.setData({
       _t: language._t(),
   })
@@ -97,9 +96,7 @@ Page({
     app.globalData.userInfo = e.detail.userInfo
     wx.setStorageSync('loginToken', e.detail)
 
-    console.log("用户信息为：", e.detail)
     registerApifm(e.detail).then(res => {
-      console.log("注册接口返回结果：", res)
       // 注册成功code返回为0
       if(res.code == 0){
         wx.showToast({

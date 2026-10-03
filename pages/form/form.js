@@ -141,7 +141,6 @@ const submitForm = async (formData, that) => {
         "historyList": '${JSON.stringify(historyList)}'
   }`;
   
-  console.log("最后提交", content)
 
 /*
      "uid": "${tokenObj.uid}",                                  用户唯一标识
@@ -355,7 +354,6 @@ Component({
                         // 通过url将文件上传上去
 
                             WXAPI.uploadFile(tokenObj.token, that.data.path).then(res => {
-                                console.log("文件上传后的结果", res, filename)
                                 newFileList.push({
                                     filename,
                                     url:res.data.url
@@ -413,7 +411,6 @@ Component({
                     // wx.showToast({
                     //     title: '校验通过'
                     // })
-                    console.log("表单数据", this.data.formData)
 
                      const { wordLimit  } = this.data.formData;
 

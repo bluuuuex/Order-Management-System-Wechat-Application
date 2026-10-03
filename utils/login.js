@@ -45,12 +45,10 @@ const goLogin = (cb) => {
   wx.login({
     success: function (res) {
       const code = res.code; // 微信登录接口返回的 code 参数，下面登录接口需要用到
-      console.log("微信登录接口返回", res)
       setCode(code);  // 设置用户code
 
       WXAPI.login_wx(code).then(function (res) {
         // 登录接口返回结果
-        console.log('API工厂登录接口返回结果:', res)
         if (res.code == 10000) { // 1000代表没有注册
           wx.showToast({
             title: `${_('registerTips')}`,

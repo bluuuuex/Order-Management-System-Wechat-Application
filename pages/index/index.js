@@ -44,7 +44,6 @@ Page({
   })
   // token存在 注册登录按钮才会显示
   const token = wx.getStorageSync('token')
-  console.log("324432432",token)
     if (app.globalData.userInfo && token) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -100,9 +99,7 @@ Page({
     app.globalData.userInfo = e.detail.userInfo
     wx.setStorageSync('loginToken', e.detail)
 
-    console.log("用户信息为：", e.detail)
     registerApifm(e.detail).then(res => {
-      console.log("注册接口返回结果：", res)
       // 注册成功code返回为0 或者用户存在时执行goLoging
       if(res.code == 0){
         wx.showToast({
